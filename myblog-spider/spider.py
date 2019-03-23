@@ -54,17 +54,27 @@ if __name__ == '__main__':
         RESULT_LIST = sorted(RESULT_LIST,key=lambda x:x['read_num'])
         RESULT_LIST.reverse()
         print(RESULT_LIST)
-        sum = sum([ i['read_num'] for i in RESULT_LIST])
-        print('sum',str(sum))
+        sum1 = sum([ i['read_num'] for i in RESULT_LIST])
+        print('sum',str(sum1))
         RESULT_LIST = [ i['title']+'  '+str(i['read_num']) for i in RESULT_LIST]
-        content = '\n'.join(RESULT_LIST)+'\n'+'sum'+'   '+str(sum)
-        print(content)
-        # 邮箱正文
-        contents = content
+        content = '\n'.join(RESULT_LIST)+'\n'+'sum'+'   '+str(sum1)
 
+        # 邮箱正文
+        # html_ = requests.get('https://www.cnblogs.com/sfencs-hcy/')#catListBlogRank
+        # html_str = html_.content.decode()
+        # selector = lxml.html.fromstring(html_str)
+        # rank_list = selector.xpath(
+        #     '//div[@class="catListBlogRank"]/ul')[0]
+        # rank_1 = rank_list.xpath('li[@class="liScore"]/text()')[0]
+        # rank_2 = rank_list.xpath('li[@class="liRank"]/text()')[0]
+        #
+        # content = content+'  '+rank_1+'\n'+rank_2
+        contents = content
+        print(content)
         # 发送邮件
         yag.send('15832381691@163.com', '博客园博客记录', contents)
         print('正在等待下一次发生中...')
-        time.sleep(60*60*2)
+
+        time.sleep(2*60*60)
 
 

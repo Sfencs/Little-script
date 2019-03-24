@@ -5,7 +5,7 @@ import re
 import time
 
 # 链接邮箱服务器
-yag = yagmail.SMTP( user="article_release@163.com", password="article259863", host='smtp.163.com')
+yag = yagmail.SMTP( user="article_release@163.com", password=".....", host='smtp.163.com')
 
 # # 邮箱正文
 # contents = ['This']
